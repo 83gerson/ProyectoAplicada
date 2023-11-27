@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WoofChef.Models.TbProducto>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Productos</h1>
+
+<p>
+    <a asp-action="Create">Agregar Producto</a>
+</p>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered table-striped table-success">
+        <thead>
+            <tr>
+                <th>Receta</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Receta</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Cantidad</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-center">No hay productos disponibles.</p>
+}

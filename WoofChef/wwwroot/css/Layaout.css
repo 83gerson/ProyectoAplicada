@@ -1,0 +1,20 @@
+﻿.imagen-pequena {
+    max-width: 25%; /* Establece el ancho máximo de la imagen */
+    border: 1px solid #ccc; /* Agrega un borde delgado */
+    max-height:25%;
+}
+
+
+.imagen-pequena2 {
+    max-width: 40%; /* Establece el ancho máximo de la imagen */
+    border: 1px solid #ccc; /* Agrega un borde delgado */
+    max-height: 25%;
+}
+
+body{
+
+    background-color:lightpink;
+}
+
+
+

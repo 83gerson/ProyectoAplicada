@@ -1,0 +1,29 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+#1 {
+    margin-bottom: 60px;
+}
+
+.container {
+    width: 885.6px;
+    height: 320.26px;
+}
+
+.icon-large {
+    font-size: 1.5em; /* Ajusta el tamaño según sea necesario */
+}
+
+
