@@ -1,0 +1,32 @@
+﻿.form-group {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+table th {
+    text-align: left;
+    font-weight: bold;
+    background: #00ff21
+}

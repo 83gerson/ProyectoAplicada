@@ -19,12 +19,10 @@ namespace WoofChef.Controllers
 
             if (usuarioEncontrado != null)
             {
-                // Iniciar sesión y redirigir a la página de inicio
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                // Mostrar mensaje de error y regresar a la vista de inicio de sesión
                 ViewBag.ErrorMessage = "Credenciales de inicio de sesión incorrectas";
                 return RedirectToAction("Login", "Login");
             }
