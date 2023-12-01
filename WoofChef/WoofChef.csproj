@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Expendiente\" />
     <Folder Include="Views\Ingredientes\" />
   </ItemGroup>
 

@@ -14,4 +14,5 @@ public partial class TbExpediente
     public string DescripcionMascota { get; set; } = null!;
 
     public string EnfermedadesYalergias { get; set; } = null!;
+
 }
