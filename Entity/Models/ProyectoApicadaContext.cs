@@ -21,15 +21,21 @@ public partial class ProyectoApicadaContext : DbContext
 
     public virtual DbSet<TbProducto> TbProductos { get; set; }
 
+    public virtual DbSet<TbUsuario> TbUsuarios { get; set; }
+
+    public virtual DbSet<TbVenta> TbVentas { get; set; }
+
+    public virtual DbSet<TbVentasProducto> TbVentasProductos { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-I7JHR1PM;User Id=sa;Password=dylan2604;Initial Catalog=ProyectoApicada;TrustServerCertificate=true;");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-HAJJ5O1;User Id=sa;Password=12345;Initial Catalog=ProyectoApicada;TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<TbExpediente>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tb_Exped__3214EC07B7D2A595");
+            entity.HasKey(e => e.Id).HasName("PK__tb_Exped__3214EC07F9D1D8AF");
 
             entity.ToTable("tb_Expediente");
 
@@ -43,7 +49,7 @@ public partial class ProyectoApicadaContext : DbContext
 
         modelBuilder.Entity<TbIngrediente>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tb_Ingre__3214EC075E44EA3A");
+            entity.HasKey(e => e.Id).HasName("PK__tb_Ingre__3214EC07D734523B");
 
             entity.ToTable("tb_Ingrediente");
 
@@ -52,7 +58,7 @@ public partial class ProyectoApicadaContext : DbContext
 
         modelBuilder.Entity<TbProducto>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tb_Produ__3214EC07D4153EA0");
+            entity.HasKey(e => e.Id).HasName("PK__tb_Produ__3214EC0739527927");
 
             entity.ToTable("tb_Producto");
 
@@ -77,6 +83,60 @@ public partial class ProyectoApicadaContext : DbContext
                         j.IndexerProperty<int>("IdProducto").HasColumnName("Id_Producto");
                         j.IndexerProperty<int>("IdIngrediente").HasColumnName("Id_Ingrediente");
                     });
+        });
+
+        modelBuilder.Entity<TbUsuario>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__tb_Usuar__3214EC073555B294");
+
+            entity.ToTable("tb_Usuario");
+
+            entity.Property(e => e.Contrasenna)
+                .HasMaxLength(30)
+                .IsUnicode(false);
+            entity.Property(e => e.NombreUsuario)
+                .HasMaxLength(30)
+                .IsUnicode(false);
+            entity.Property(e => e.Rol)
+                .HasMaxLength(8)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<TbVenta>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__tb_Venta__3214EC07978B3407");
+
+            entity.ToTable("tb_Ventas");
+
+            entity.Property(e => e.Fecha)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.IdCliente).HasColumnName("Id_Cliente");
+
+            entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.TbVenta)
+                .HasForeignKey(d => d.IdCliente)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Ventas_Cliente");
+        });
+
+        modelBuilder.Entity<TbVentasProducto>(entity =>
+        {
+            entity.HasKey(e => new { e.IdVenta, e.IdProducto }).HasName("PK_Ventas_Producto");
+
+            entity.ToTable("tb_Ventas_Producto");
+
+            entity.Property(e => e.IdVenta).HasColumnName("Id_Venta");
+            entity.Property(e => e.IdProducto).HasColumnName("Id_Producto");
+
+            entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.TbVentasProductos)
+                .HasForeignKey(d => d.IdProducto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_VentasProducto_Producto");
+
+            entity.HasOne(d => d.IdVentaNavigation).WithMany(p => p.TbVentasProductos)
+                .HasForeignKey(d => d.IdVenta)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_VentasProducto_Ventas");
         });
 
         OnModelCreatingPartial(modelBuilder);

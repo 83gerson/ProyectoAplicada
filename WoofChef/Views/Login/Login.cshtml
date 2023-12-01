@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WoofChef.Models.TbUsuario>
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+</head>
+<body>
+  <div class="container">
+    <h1>Iniciar Sesión</h1>
+    <form action="Verification" method="post">
+      <input type="text" name="NombreUsuario" id="NombreUsuario" class="input" placeholder="Usuario o correo electrónico">
+      <input type="password" name="Contrasennia" id="Contrasennia" class="input" placeholder="Contraseña">
+      <input type="submit" class="btn" value="Iniciar sesión">
+    </form>
+  </div>
+</body>
+</html>
