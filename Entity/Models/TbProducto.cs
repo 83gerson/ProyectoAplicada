@@ -13,5 +13,9 @@ public partial class TbProducto
 
     public int Cantidad { get; set; }
 
+    public int Costo { get; set; }
+
+    public virtual ICollection<TbVentasProducto> TbVentasProductos { get; set; } = new List<TbVentasProducto>();
+
     public virtual ICollection<TbIngrediente> IdIngredientes { get; set; } = new List<TbIngrediente>();
 }
