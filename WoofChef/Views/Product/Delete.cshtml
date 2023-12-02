@@ -4,25 +4,35 @@
     ViewData["Title"] = "Delete";
 }
 
-<h3>Estás seguro de que desea eliminar este Producto?</h3>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Producto</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="~/css/Expediente.css" asp-append-version="true" />
+</head>
+<body>
+<h1>Eliminar</h1>
+
+<h3>Está seguro de que desea eliminar este Producto?</h3>
 <div>
-    <h4>Producto</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Receta)
+            Receta
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Receta)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
+            Nombre
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cantidad)
+            Cantidad
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Cantidad)
@@ -31,7 +41,9 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver</a>
     </form>
 </div>
+</body>
+</html>
