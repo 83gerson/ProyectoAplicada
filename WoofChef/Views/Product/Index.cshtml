@@ -4,6 +4,15 @@
     ViewData["Title"] = "List";
 }
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Producto</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="~/css/Expediente.css" asp-append-version="true" />
+</head>
+<body>
 <h1>Productos</h1>
 
 <p>
@@ -12,7 +21,7 @@
 
 @if (Model != null && Model.Any())
 {
-    <table class="table table-bordered table-striped table-success">
+    <table class="table">
         <thead>
             <tr>
                 <th>Receta</th>
@@ -29,8 +38,8 @@
                     <td>@item.Nombre</td>
                     <td>@item.Cantidad</td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        <a class="btn-edit" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a class="btn-delete" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
                     </td>
                 </tr>
             }
@@ -41,3 +50,5 @@ else
 {
     <p class="text-center">No hay productos disponibles.</p>
 }
+</body>
+</html>
