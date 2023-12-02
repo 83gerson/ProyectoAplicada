@@ -4,27 +4,38 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Expediente</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="~/css/Expediente.css" asp-append-version="true" />
+</head>
+<body>
+<h1>Expedientes Registrados</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear Expediente</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreDuenno)
+                Dueño
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NombreMascota)
+                Mascota
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DescripcionMascota)
+                Descripción Mascota
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EnfermedadesYalergias)
+                Enfermedades y Alergias
             </th>
-            <th></th>
+            <th>
+                Acciones
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -43,11 +54,12 @@
                 @Html.DisplayFor(modelItem => item.EnfermedadesYalergias)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn-edit" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="btn-delete" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</body>
+</html>

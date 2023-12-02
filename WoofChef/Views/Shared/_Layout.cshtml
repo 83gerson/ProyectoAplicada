@@ -31,12 +31,21 @@
                         <li class="nav-item">
                             <a href="/Login/Login" class="nav-link text-dark">Login</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/Expediente" class="nav-link text-dark">Expediente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/Ingredient" class="nav-link text-dark">Ingredientes</a>
-                        </li>
+                        @if (TempData.ContainsKey("UserRole"))
+                        {
+                            string userRole = TempData["UserRole"] as string;
+
+                            if (userRole == "Admin")
+                            {
+                                 <li class="nav-item">
+                                    <a href="/Expediente" class="nav-link text-dark">Expediente</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Ingredient" class="nav-link text-dark">Ingredientes</a>
+                                </li>
+                            }
+                            <!-- Agrega más condiciones según tus roles -->
+                        }
                     </ul> 
                 </div>
             </div>

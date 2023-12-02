@@ -19,7 +19,23 @@ namespace WoofChef.Controllers
 
             if (usuarioEncontrado != null)
             {
-                return RedirectToAction("Index", "Home");
+                // Redirigir según el rol del usuario
+                if (usuarioEncontrado.Rol == "Admin")
+                {
+                    // Guardar información del usuario en TempData o ViewData si es necesario
+                    TempData["UserName"] = usuarioEncontrado.NombreUsuario;
+                    TempData["UserRole"] = usuarioEncontrado.Rol;
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    // Guardar información del usuario en TempData o ViewData si es necesario
+                    TempData["UserName"] = usuarioEncontrado.NombreUsuario;
+                    TempData["UserRole"] = usuarioEncontrado.Rol;
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {

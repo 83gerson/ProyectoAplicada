@@ -8,48 +8,48 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Expediente</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="~/css/Expediente.css" asp-append-version="true" />
 </head>
 <body>
-<h1>Create</h1>
+<h1>Crear Expediente</h1>
 
-<h4>TbExpediente</h4>
+<h4>Expediente</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NombreDuenno" class="control-label"></label>
+                <label asp-for="NombreDuenno" class="control-label">Nombre del Dueño</label>
                 <input asp-for="NombreDuenno" class="form-control" />
                 <span asp-validation-for="NombreDuenno" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NombreMascota" class="control-label"></label>
+                <label asp-for="NombreMascota" class="control-label">Nombre de la Mascota</label>
                 <input asp-for="NombreMascota" class="form-control" />
                 <span asp-validation-for="NombreMascota" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DescripcionMascota" class="control-label"></label>
+                <label asp-for="DescripcionMascota" class="control-label">Descripción de la Mascota</label>
                 <input asp-for="DescripcionMascota" class="form-control" />
                 <span asp-validation-for="DescripcionMascota" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EnfermedadesYalergias" class="control-label"></label>
+                <label asp-for="EnfermedadesYalergias" class="control-label">Enfermedades y Alergias</label>
                 <input asp-for="EnfermedadesYalergias" class="form-control" />
                 <span asp-validation-for="EnfermedadesYalergias" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear Expediente" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver</a>
 </div>
 </body>
 </html>
